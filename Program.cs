@@ -41,6 +41,57 @@ namespace Exercise3_2018118
 
             return last;
         }
+
+        static Node deleteNode(Node head, int key)
+        {
+            if (head == null)
+                return null;
+
+            // Find the required node
+            Node curr = head, prev = new Node();
+            while (curr.data != key)
+            {
+                if (curr.next == head)
+                {
+                    Console.Write("\nGiven node is not found"
+                                  + " in the list!!!");
+                    break;
+                }
+
+                prev = curr;
+                curr = curr.next;
+            }
+
+            // Check if node is only node
+            if (curr.next == head && curr == head)
+            {
+                head = null;
+                return head;
+            }
+
+            // If more than one node, check if
+            // it is first node
+            if (curr == head)
+            {
+                prev = head;
+                while (prev.next != head)
+                    prev = prev.next;
+                head = curr.next;
+                prev.next = head;
+            }
+
+            // check if node is last node
+            else if (curr.next == head)
+            {
+                prev.next = head;
+            }
+            else
+            {
+                prev.next = curr.next;
+            }
+            return head;
+        }
+
         public bool Search(int rollNo, ref Node previous, ref Node current)
             /*Searches for the specified node*/
             {
