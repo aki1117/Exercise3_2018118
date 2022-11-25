@@ -16,14 +16,32 @@ namespace Exercise3_2018118
         }
         class CircularList
         {
-            Node LAST;
 
-            public CircularList()
+            Node LAST;
+        public CircularList()
             {
                 LAST = null;
             }
 
-            public bool Search(int rollNo, ref Node previous, ref Node current)
+        static Node addToEmpty(Node last, int data)
+        {
+            // This function is only for empty list
+            if (last != null)
+                return last;
+
+            // Creating a node dynamically.
+            Node temp = new Node();
+
+            // Assigning the data.
+            temp.rollNumber = data;
+            last = temp;
+
+            // Creating the link.
+            last.next = last;
+
+            return last;
+        }
+        public bool Search(int rollNo, ref Node previous, ref Node current)
             /*Searches for the specified node*/
             {
                 for (previous = current = LAST.next; current != LAST; previous = current, current = current.next)
@@ -70,9 +88,12 @@ namespace Exercise3_2018118
                 else
                     Console.WriteLine("\nThe first record in the list is:\n\n" + LAST.next.rollNumber + "     " + LAST.next.name);       
             }
+
+            
             static void Main(string[] args)
             {
             CircularList obj = new CircularList();
+
             while (true) 
             {
                 try
