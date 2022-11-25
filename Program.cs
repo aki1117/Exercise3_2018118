@@ -37,6 +37,14 @@ namespace Exercise3_2018118
                 else
                     return (false);/*return false if the node is not found*/
             }
+
+            public bool listEmpty()
+            {
+                if (LAST == null)
+                    return true;
+                else
+                    return false;
+            }
         }
         
         static void Main(string[] args)
