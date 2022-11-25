@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise3_2018118
 {
-    class Program
-    {
+    
         class Node
         {
             /*creates nodes for the cicular nexted list*/
@@ -64,12 +63,16 @@ namespace Exercise3_2018118
                     Console.Write(LAST.rollNumber + "      " + LAST.name + "\n");
                 }
             }
-                
+            public void firstNode()
+            {
+                if (listEmpty())
+                    Console.WriteLine("\nList is empty");
+                else
+                    Console.WriteLine("\nThe first record in the list is:\n\n" + LAST.next.rollNumber + "     " + LAST.next.name);       
+            }
+
         }
         
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
+        
+    
 }
